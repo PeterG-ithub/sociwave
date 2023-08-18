@@ -3,9 +3,10 @@
     Welcome! <%= current_user.username%>
   <% end %>
 </div>
+<%= link_to 'New post', new_post_path%>
 <h1>Timeline</h1>
 <% @posts.each do |post| %>
   <%= post.title %>
   <%= post.body %>
-  <%= post.user %>
+  <%= post.user.username %>
 <% end %>

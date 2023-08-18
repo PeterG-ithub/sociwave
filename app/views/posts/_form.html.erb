@@ -1,0 +1,14 @@
+<% if post.errors.any? %>
+<ul>
+  <% post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_with model: post do |form| %>
+  <%= form.text_field :title, placeholder: 'title' %> <br>
+
+  <%= form.text_field :body, placeholder: 'body' %> <br>
+  <%= form.submit %>
+<% end %>
