@@ -1,4 +1,14 @@
 <h1>Users</h1>
 <% @users.each do |user| %>
-  <%= user.username %> <br>
+  <%= user.username %>  
+  <% if current_user == user %>
+    <span>(me)</span>
+  <% else %>
+    <%= form_with url: friend_requests_path , method: :post do |form| %>
+      <%= form.hidden_field :sender_id, value: current_user.id %>
+      <%= form.hidden_field :receiver_id, value: user.id %>
+      <%= form.submit 'Send friend request' %>
+    <% end %>
+  <% end %> <br>
+  
 <% end %>
