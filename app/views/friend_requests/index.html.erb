@@ -1,2 +1,4 @@
-<h1>FriendRequests#index</h1>
-<p>Find me in app/views/friend_requests/index.html.erb</p>
+<h1>Friend requests</h1>
+<% @friend_requests.each do |friend_request| %>
+  <%= friend_request.sender.username %>
+<% end %>
