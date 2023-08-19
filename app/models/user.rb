@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts
   has_many :comments
+  has_many :friend_requests, foreign_key: :receiver
 end
