@@ -9,4 +9,5 @@
   <%= post.title %>
   <%= post.body %>
   <%= post.user.username %>
+  <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%>
 <% end %>
