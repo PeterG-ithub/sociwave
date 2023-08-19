@@ -3,6 +3,8 @@
   <%= user.username %>  
   <% if current_user == user %>
     <span>(me)</span>
+  <% elsif current_user.sent_friend_requests.exists?(receiver_id: user.id) %>
+    <span>(request sent)</span>
   <% else %>
     <%= form_with url: friend_requests_path , method: :post do |form| %>
       <%= form.hidden_field :sender_id, value: current_user.id %>
