@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friend_requests, only: [:index, :create, :destroy]
   resources :posts do
     resources :comments
   end
