@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/index'
   resources :users, only: [:index]
-  resources :friend_requests, only: [:index, :create, :destroy]
+  resources :friend_requests, :friends,  only: [:index, :create, :destroy]
   resources :posts do
     resources :comments
   end
