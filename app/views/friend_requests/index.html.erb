@@ -6,4 +6,7 @@
     <%= form.hidden_field :friend, value: friend_request.sender.id %>
     <%= form.submit 'Accept' %>
   <% end %>
+  <%= form_with url: friend_request_path(friend_request) , method: :delete do |form| %>
+    <%= form.submit 'Decline' %>
+  <% end %>
 <% end %>
