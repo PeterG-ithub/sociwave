@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :sent_friend_requests, class_name: 'FriendRequest', foreign_key: :sender
   has_many :friend_requests, foreign_key: :receiver
+  has_many :friends, ->(user) { unscope(:where).where('user_id = ? OR friend_id = ?', user.id, user.id) }
 end
