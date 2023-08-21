@@ -3,7 +3,9 @@
     Welcome! <%= current_user.username%>
   <% end %>
 </div>
-<%= link_to 'New post', new_post_path%>
+<%= turbo_frame_tag "post" do %>
+  <%= link_to 'New post', new_post_path%>
+<% end %>
 <h1>Timeline</h1>
 <% @posts.each do |post| %>
   title: <%= post.title %> <br>
@@ -21,5 +23,7 @@
     <% end %>
     <%= comment.likes.count%> like <br>
   <% end %>
-  <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%> <br>
+  <%= turbo_frame_tag "comment" do %>
+    <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%> <br>
+  <% end %>
 <% end %>
