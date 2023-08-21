@@ -6,8 +6,11 @@
 <%= link_to 'New post', new_post_path%>
 <h1>Timeline</h1>
 <% @posts.each do |post| %>
-  <%= post.title %>
-  <%= post.body %>
-  <%= post.user.username %>
-  <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%>
+  title: <%= post.title %> <br>
+  body: <%= post.body %> <br>
+  <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
+    <%= form.submit 'Like' %>
+  <% end %>
+  Author: <%= post.user.username %> <br>
+  <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%> <br>
 <% end %>
