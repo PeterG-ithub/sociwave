@@ -1,13 +1,9 @@
 class LikesController < ApplicationController
   def create
-    post = Post.find(params[:post_id])
-    like = current_user.likes.new(likable: post)
+    post = Post.find(params[:post_id]) if params[:post_id]
+    comment = Comment.find(params[:comment_id]) if params[:comment_id]
+    like = current_user.likes.new(likable: post) if params[:post_id]
+    like = current_user.likes.new(likable: comment) if params[:comment_id]
     like.save
-  end
-
-  private
-
-  def likes_params
-    params.required(:like).permit(:likable_id, :likable_type)
   end
 end

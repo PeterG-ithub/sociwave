@@ -12,5 +12,12 @@
     <%= form.submit 'Like' %>
   <% end %>
   Author: <%= post.user.username %> <br>
+  <% post.comments.each do |comment| %>
+    Body: <%= comment.body %>
+    Author: <%= comment.user.username%> <br>
+    <%= form_with url: comment_likes_path(comment.id), method: :post do |form| %>
+    <%= form.submit 'Like' %>
+    <% end %>
+  <% end %>
   <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%> <br>
 <% end %>
