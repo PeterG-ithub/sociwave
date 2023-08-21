@@ -13,6 +13,10 @@ class CommentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   private

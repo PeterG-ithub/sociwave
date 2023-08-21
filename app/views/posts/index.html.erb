@@ -23,7 +23,5 @@
     <% end %>
     <%= comment.likes.count%> like <br>
   <% end %>
-  <%= turbo_frame_tag "comment" do %>
-    <%= link_to 'Add comment', new_post_comment_path(post_id: post.id)%> <br>
-  <% end %>
+  <%= turbo_frame_tag "new_comment", src: new_post_comment_path(post_id: post.id), target: "_top" %> <br>
 <% end %>
