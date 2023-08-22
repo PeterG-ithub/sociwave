@@ -76,3 +76,4 @@ gem "faker"
 gem "letter_opener", group: :development
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+gem 'figaro'
