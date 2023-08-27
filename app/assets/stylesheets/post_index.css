@@ -42,3 +42,23 @@
   float: right;
   padding: 0.3rem 0.5rem;
 }
+
+/* post display section */
+.post-display-container {
+  align-items: center;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-display {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-item {
+  background-color: azure;
+  border: 1px solid;
+  width: 75ch;
+}
