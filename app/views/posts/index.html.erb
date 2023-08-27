@@ -15,10 +15,14 @@
     </div>
   </div>
 </div>
-<%= turbo_frame_tag 'new_post', src: new_post_path, target: '_top' %>
+
+<section class="add-post-container">
+  <div class="post-form">
+    <%= turbo_frame_tag 'new_post', src: new_post_path, target: '_top' %>
+    </div>
+</section>
 <h1>Timeline</h1>
 <% @posts.each do |post| %>
-  title: <%= post.title %> <br>
   body: <%= post.body %> <br>
   <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
     <%= form.submit 'Like' %>

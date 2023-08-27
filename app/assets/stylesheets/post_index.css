@@ -1,3 +1,4 @@
+/* Nav bar */
 .navbar-container {
   background-color: rgb(202, 235, 250);
 }
@@ -7,7 +8,7 @@
   justify-content: space-between;
   margin: auto;
   padding: 1rem;
-  width: 1300px;
+  max-width: 1300px;
 }
 
 .navbar img {
@@ -21,3 +22,23 @@
   gap: 0.5rem;
 }
 
+/* Add post section */
+.add-post-container {
+  background-color: aqua;
+}
+
+.post-form {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.post-form textarea {
+  padding: 1rem;
+  resize: none;
+}
+
+.post-form input[type="submit"] {
+  float: right;
+  padding: 0.3rem 0.5rem;
+}

@@ -8,7 +8,7 @@
   <% end %>
 
   <%= form_with model: post do |form| %>
-    <%= form.text_field :body, placeholder: 'body' %> <br>
-    <%= form.submit %>
+    <%= form.text_area :body, placeholder: 'What do you want to share today?', size: "70x5" %> <br>
+    <%= form.submit 'Post' %>
   <% end %>
 <% end %>
