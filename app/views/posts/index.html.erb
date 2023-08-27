@@ -1,7 +1,19 @@
-<div class="navbar">
-  <% if user_signed_in? %>
-    Welcome! <%= current_user.username%>
-  <% end %>
+<div class="navbar-container">
+  <div class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <%= image_tag ('sociwave-icon.png') %>
+        <p>SociWave</p>
+      </div>
+    </div>
+    <div class="nav-right">
+      <p class="messages">Messages</p>
+      <p class="notifications">Notifications</p>
+      <% if user_signed_in? %>
+        Welcome! <%= current_user.username%>
+      <% end %>
+    </div>
+  </div>
 </div>
 <%= turbo_frame_tag 'new_post', src: new_post_path, target: '_top' %>
 <h1>Timeline</h1>

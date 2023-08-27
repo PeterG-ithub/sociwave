@@ -1,0 +1,23 @@
+.navbar-container {
+  background-color: rgb(202, 235, 250);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 1rem;
+  width: 1300px;
+}
+
+.navbar img {
+  width: 50px;
+}
+
+.navbar > .nav-left > .logo,
+.navbar>.nav-right {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
