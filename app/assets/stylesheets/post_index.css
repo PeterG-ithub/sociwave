@@ -69,9 +69,19 @@
 
 /* post items */
 .item-body,
-.item-buttons,
 .item-head {
   padding-bottom: 1rem;
+}
+
+.item-body, 
+.item-buttons {
+  padding-top: 0.3rem;
+  border-top: 1px solid rgba(0, 0, 0, .25);
+}
+
+.item-buttons {
+  display: flex;
+  justify-content: space-around;
 }
 
 .username {

@@ -46,19 +46,29 @@
           <%= post.body %> <br>
         </div>
         <div class="item-buttons">
-          <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
-            <%= form.submit 'Like' %>
-          <% end %>
-          <%= post.likes.count %> like <br>
-          <% post.comments.each do |comment| %>
-            Body: <%= comment.body %>
-            Author: <%= comment.user.username%> <br>
-            <%= form_with url: comment_likes_path(comment.id), method: :post do |form| %>
-            <%= form.submit 'Like' %>
+          <div class="like-button">
+            <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
+              <%= form.submit 'Like' %>
             <% end %>
-            <%= comment.likes.count%> like <br>
-          <% end %>
-          <%= turbo_frame_tag "new_comment", src: new_post_comment_path(post_id: post.id), target: "_top" %> <br>
+            <%= post.likes.count %> like <br>
+          </div>
+          <div class="comment-buttons">
+            <button class="comment-button">
+              Comment
+            </button><br>
+            <%= post.comments.count %> Comments
+          </div>
+          <!--
+          <%# post.comments.each do |comment| %>
+            Body: <%#= comment.body %>
+            Author: <%#= comment.user.username%> <br>
+            <%#= form_with url: comment_likes_path(comment.id), method: :post do |form| %>
+            <%#= form.submit 'Like' %>
+            <%# end %>
+            <%#= comment.likes.count%> like <br>
+          <%# end %>
+          <%#= turbo_frame_tag "new_comment", src: new_post_comment_path(post_id: post.id), target: "_top" %> <br>
+          -->
         </div>
       </div>
     <% end %>
