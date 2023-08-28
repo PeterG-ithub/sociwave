@@ -1,6 +1,6 @@
 /* Nav bar */
 .navbar-container {
-  background-color: rgb(202, 235, 250);
+  background-color: #F9F6F5;
 }
 
 .navbar {
@@ -24,7 +24,7 @@
 
 /* Add post section */
 .add-post-container {
-  background-color: aqua;
+  background-color: #E2DFDA;
 }
 
 .post-form {
@@ -34,6 +34,8 @@
 }
 
 .post-form textarea {
+  border-radius: 1.5rem;
+  background-color: #F9F6F5;
   padding: 1rem;
   resize: none;
 }
@@ -46,7 +48,7 @@
 /* post display section */
 .post-display-container {
   align-items: center;
-  background-color: aquamarine;
+  background-color: #E2DFDA;
   display: flex;
   flex-direction: column;
 }
@@ -58,7 +60,20 @@
 }
 
 .post-item {
-  background-color: azure;
+  background-color: #F9F6F5;
   border: 1px solid;
+  border-radius: 1rem;
+  padding: .8rem 1.5rem;
   width: 75ch;
+}
+
+/* post items */
+.item-body,
+.item-buttons,
+.item-head {
+  padding-bottom: 1rem;
+}
+
+.username {
+  font-weight: 700;
 }

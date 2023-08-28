@@ -26,22 +26,40 @@
   <div class="post-display">
     <% @posts.each do |post| %>
       <div class="post-item">
-        <%= post.user.username %> <br>
-        Created at: <%= post.created_at%> <br>
-        body: <%= post.body %> <br>
-        <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
-          <%= form.submit 'Like' %>
-        <% end %>
-        <%= post.likes.count %> like <br>    
-        <% post.comments.each do |comment| %>
-          Body: <%= comment.body %>
-          Author: <%= comment.user.username%> <br>
-          <%= form_with url: comment_likes_path(comment.id), method: :post do |form| %>
-          <%= form.submit 'Like' %>
+        <div class="item-head">
+          <span class="username">
+            <%= post.user.username %>
+          </span>
+          <% time = Time.at(Time.now - post.created_at) %>
+          <% days = time.utc.strftime("%e") %>
+          <% hours = time.utc.strftime("%H") %>
+          <% mins = time.min %>
+          <% if (hours.to_i - 1) <= 0 && (days.to_i - 1) <= 0 %>
+            <%= mins %> minutes ago
+          <% elsif (days.to_i - 1) == 0 %>
+            <%= hours %> hours ago
+          <% else %>
+            <%= (days.to_i - 1)%> days ago
           <% end %>
-          <%= comment.likes.count%> like <br>
-        <% end %>
-        <%= turbo_frame_tag "new_comment", src: new_post_comment_path(post_id: post.id), target: "_top" %> <br>
+        </div>
+        <div class="item-body">
+          <%= post.body %> <br>
+        </div>
+        <div class="item-buttons">
+          <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
+            <%= form.submit 'Like' %>
+          <% end %>
+          <%= post.likes.count %> like <br>
+          <% post.comments.each do |comment| %>
+            Body: <%= comment.body %>
+            Author: <%= comment.user.username%> <br>
+            <%= form_with url: comment_likes_path(comment.id), method: :post do |form| %>
+            <%= form.submit 'Like' %>
+            <% end %>
+            <%= comment.likes.count%> like <br>
+          <% end %>
+          <%= turbo_frame_tag "new_comment", src: new_post_comment_path(post_id: post.id), target: "_top" %> <br>
+        </div>
       </div>
     <% end %>
   </div>
