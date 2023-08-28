@@ -12,14 +12,14 @@
 }
 
 .navbar img {
-  width: 50px;
+  width: 30px;
 }
 
 .navbar > .nav-left > .logo,
 .navbar>.nav-right {
   align-items: center;
   display: flex;
-  gap: 0.5rem;
+  gap: 2rem;
 }
 
 /* Add post section */
@@ -73,6 +73,12 @@
   padding-bottom: 1rem;
 }
 
+.item-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .item-body, 
 .item-buttons {
   padding-top: 0.3rem;
@@ -82,8 +88,15 @@
 .item-buttons {
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
 
 .username {
   font-weight: 700;
+}
+
+.like-button-image,
+.comment-buttons img,
+.user-image img {
+  width: 1.5rem;
 }

@@ -7,11 +7,15 @@
       </div>
     </div>
     <div class="nav-right">
-      <p class="messages">Messages</p>
-      <p class="notifications">Notifications</p>
-      <% if user_signed_in? %>
-        Welcome! <%= current_user.username%>
-      <% end %>
+      <div class="messages">
+        <%=link_to image_tag 'messages.png'%>
+      </div>
+      <div class="notifications">
+        <%=link_to image_tag 'notification.png'%>
+      </div>
+      <div class="user">
+        <%=link_to image_tag 'user.png'%>
+      </div>
     </div>
   </div>
 </div>
@@ -27,14 +31,17 @@
     <% @posts.each do |post| %>
       <div class="post-item">
         <div class="item-head">
+          <span class="user-image">
+            <%= image_tag('user.png')%>
+          </span>
           <span class="username">
             <%= post.user.username %>
           </span>
           <% time = Time.at(Time.now - post.created_at) %>
           <% days = time.utc.strftime("%e") %>
-          <% hours = time.utc.strftime("%H") %>
+          <% hours = time.hour %>
           <% mins = time.min %>
-          <% if (hours.to_i - 1) <= 0 && (days.to_i - 1) <= 0 %>
+          <% if (hours - 1) <= 0 && (days.to_i - 1) <= 0 %>
             <%= mins %> minutes ago
           <% elsif (days.to_i - 1) == 0 %>
             <%= hours %> hours ago
@@ -45,17 +52,16 @@
         <div class="item-body">
           <%= post.body %> <br>
         </div>
+        
         <div class="item-buttons">
           <div class="like-button">
             <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
-              <%= form.submit 'Like' %>
+              <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'like-button-image' %>
             <% end %>
             <%= post.likes.count %> like <br>
           </div>
           <div class="comment-buttons">
-            <button class="comment-button">
-              Comment
-            </button><br>
+            <%= image_tag('comment.png') %> <br>
             <%= post.comments.count %> Comments
           </div>
           <!--
