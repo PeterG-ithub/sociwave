@@ -1,0 +1,46 @@
+<%= render partial: 'nav' %>
+<div class="post-display-container">
+  <div class="post-item">
+    <div class="item-head">
+      <span class="user-image">
+        <%= image_tag('user.png')%>
+      </span>
+      <span class="username">
+        <%= @post.user.username %>
+      </span>
+      <% time = Time.at(Time.now - @post.created_at) %>
+      <% days = time.utc.strftime("%e") %>
+      <% hours = time.hour %>
+      <% mins = time.min %>
+      <% if (hours - 1) <= 0 && (days.to_i - 1) <= 0 %>
+        <%= mins %> minutes ago
+      <% elsif (days.to_i - 1) == 0 %>
+        <%= hours %> hours ago
+      <% else %>
+        <%= (days.to_i - 1)%> days ago
+      <% end %>
+    </div>
+    <div class="item-body">
+      <%= @post.body %> <br>
+    </div>
+  
+    <div class="item-buttons">
+      <div class="like-button">
+        <%= form_with url: post_likes_path(@post.id), method: :post do |form| %>
+          <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'like-button-image' %>
+        <% end %>
+        <%= @post.likes.count %> like <br>
+      </div>
+      <div class="comment-buttons">
+          <%= image_tag('comment.png') %> <br>
+          Comment
+        </div>
+    </div>
+
+    <div class="comments">
+      <% @post.comments.each do |comment| %>
+        <%= comment.body%> br
+      <% end %>
+    </div>
+  </div>
+</div>
