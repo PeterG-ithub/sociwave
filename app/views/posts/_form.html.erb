@@ -1,14 +1,11 @@
-<%= turbo_frame_tag "new_post" do %>
-  <% if post.errors.any? %>
+<%= form_with model: post do |form| %>
+  <%= form.text_area :body, placeholder: 'What do you want to share today?', size: "70x5" %> <br>
+  <%= form.submit 'Post' %>
+<% end %>
+<% if post.errors.any? %>
   <ul>
     <% post.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
-  <% end %>
-
-  <%= form_with model: post do |form| %>
-    <%= form.text_area :body, placeholder: 'What do you want to share today?', size: "70x5" %> <br>
-    <%= form.submit 'Post' %>
-  <% end %>
 <% end %>
