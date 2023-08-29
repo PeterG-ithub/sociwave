@@ -1,1 +1,1 @@
-<%= turbo_stream.append(:posts, partial: 'post', locals: { post: @post }) %>
+<%= turbo_stream.append('post-display', partial: 'post', locals: { post: @post }) %>
