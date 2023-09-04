@@ -104,7 +104,7 @@ body {
   flex-direction: column;
 }
 
-#post-display a {
+#post-display > * {
   margin: .7rem 0;
 }
 
