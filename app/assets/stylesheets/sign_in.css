@@ -1,0 +1,68 @@
+.logo-name {
+  font-size: 2rem;
+  text-align: center;
+  padding: 4rem 0;
+  border-bottom: 1px dashed ;
+}
+.sign-in-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: column;
+  background-color: #e2dfda;
+}
+
+.sign-in-modal {
+  align-self: center;
+  padding: .4rem 1rem;
+  border: 1px solid black;
+  border-radius: .5rem;
+  text-align: center;
+  background-color: white;
+  margin-top: 2rem;
+}
+
+.sign-in-modal a {
+  color: blue;
+}
+
+.sign-in-modal input[type="email"],
+.sign-in-modal input[type="password"] {
+  padding: .3rem;
+  width: 100%;
+}
+
+
+
+.sign-in-modal .field {
+  margin-top: .3rem;
+}
+
+.remember-me {
+  display: flex;
+  float:right;
+  gap: .3rem;
+}
+
+.remember-me > * {
+  cursor: pointer;
+}
+
+.sign-in-modal .actions {
+  border-bottom: 1px dashed;
+}
+
+/* button */
+.sign-in-modal .actions > * ,
+.sign-in-modal button{
+  font-size: 1rem;
+  font-weight: bold;
+  padding: .7rem;
+  width: 100%;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.error-explanation {
+  color: red;
+}
