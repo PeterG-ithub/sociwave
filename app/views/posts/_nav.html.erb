@@ -15,16 +15,18 @@
       <div class="notifications">
         <%=link_to image_tag 'notification.png'%>
       </div>
-      <div class="user-container">
-        <div class="user">
-          <%=image_tag 'user.png'%>
-        </div>
-        <div class="user-dropdown">
-          <%= link_to 'Profile' %>
-          <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'logout-link' do%>
-            <%= image_tag 'logout.png' %>
-            Logout 
-           <%end%> 
+      <div data-controller="visibility" data-visibility-show-class="show">
+        <div class="user-container">
+          <div class="user", data-action="click->visibility#toggle">
+            <%=image_tag 'user.png'%>
+          </div>
+          <div class="user-dropdown", data-visibility-target="dropdown">
+            <%= link_to 'Profile' %>
+            <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'logout-link' do%>
+              <%= image_tag 'logout.png' %>
+              Logout
+             <%end%>
+          </div>
         </div>
       </div>
     </div>

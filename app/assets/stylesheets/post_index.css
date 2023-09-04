@@ -42,9 +42,13 @@ body {
   box-shadow: 3px 3px 3px slategrey;
   padding: .2rem 0;
   background-color: white;
+  display: none;
+  text-align: center;
+}
+
+.user-dropdown.show {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
 .user-dropdown > * {
