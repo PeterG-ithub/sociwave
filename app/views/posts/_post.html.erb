@@ -25,13 +25,13 @@
         </div>
       <% end %>
       <div class="item-buttons">
-        <div class="like-button">
-          <div class="like-image">
+        <div class="like-button" data-controller="like">
+          <div class="like-image" data-action="click->like#add">
             <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
               <% if current_user.likes.map(&:likable_id).include?(post.id) %>
-                <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'like-button-image' %>
+                <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'liked' %>
               <% else %>
-                <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'like-button-image' %>
+                <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'unliked' %>
               <% end %>
             <% end %>
           </div>

@@ -1,0 +1,11 @@
+.like-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.like-image,
+.liked,
+.unliked {
+  width: 1.5rem;
+  height: 1.5rem;
+}
