@@ -27,7 +27,8 @@
 }
 
 .sign-in-modal input[type="email"],
-.sign-in-modal input[type="password"] {
+.sign-in-modal input[type="password"],
+.sign-in-modal input[type="text"] {
   padding: .3rem;
   width: 100%;
 }
