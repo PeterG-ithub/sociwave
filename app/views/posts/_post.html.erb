@@ -27,7 +27,11 @@
       <div class="item-buttons">
         <div class="like-button">
           <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
-            <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'like-button-image' %>
+            <% if current_user.likes.map(&:likable_id).include?(post.id) %>
+              <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'like-button-image' %>
+            <% else %>
+              <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'like-button-image' %>
+            <% end %>
           <% end %>
           <%= post.likes.count %> like <br>
         </div>
