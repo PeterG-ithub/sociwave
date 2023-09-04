@@ -1,10 +1,12 @@
 <div class="navbar-container">
   <div class="navbar">
     <div class="nav-left">
-      <div class="logo">
-        <%= image_tag ('sociwave-icon.png') %>
-        <p>SociWave</p>
-      </div>
+        <div class="logo">
+          <%= link_to root_path do %>
+            <%= image_tag ('sociwave-icon.png') %>
+            <p>SociWave</p>
+          <% end %>
+        </div>
     </div>
     <div class="nav-right">
       <div class="messages">
@@ -13,8 +15,17 @@
       <div class="notifications">
         <%=link_to image_tag 'notification.png'%>
       </div>
-      <div class="user">
-        <%=link_to image_tag 'user.png'%>
+      <div class="user-container">
+        <div class="user">
+          <%=image_tag 'user.png'%>
+        </div>
+        <div class="user-dropdown">
+          <%= link_to 'Profile' %>
+          <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'logout-link' do%>
+            <%= image_tag 'logout.png' %>
+            Logout 
+           <%end%> 
+        </div>
       </div>
     </div>
   </div>

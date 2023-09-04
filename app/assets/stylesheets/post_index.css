@@ -22,11 +22,44 @@ body {
   width: 30px;
 }
 
-.navbar > .nav-left > .logo,
+.navbar > .nav-left > .logo > a,
 .navbar>.nav-right {
   align-items: center;
   display: flex;
   gap: 2rem;
+}
+
+.navbar>.nav-left>.logo>a {
+  gap: 1rem;
+}
+
+/* user drop down*/
+.user-dropdown {
+  position: absolute;
+  border: transparent;
+  border: 0.5px solid;
+  border-radius: .3rem;
+  box-shadow: 3px 3px 3px slategrey;
+  padding: .2rem 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.user-dropdown > * {
+  padding: .5rem .7rem;
+}
+
+.user-dropdown>*:hover {
+  background-color: rgba(180, 180, 180, 0.541);
+}
+.user-dropdown > * img {
+  width: 20px;
+}
+
+.logout-link {
+  display: flex;
 }
 
 /* Add post section */
@@ -41,7 +74,7 @@ body {
 }
 
 .post-form textarea {
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   background-color: #F9F6F5;
   padding: 1rem;
   resize: none;
@@ -68,8 +101,6 @@ body {
 }
 
 #post-display a {
-  text-decoration: none;
-  color: black;
   margin: .7rem 0;
 }
 
