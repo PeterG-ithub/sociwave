@@ -28,6 +28,7 @@
         <div class="like-button" data-controller="like"
           data-like-imagel-value=<%=asset_path('heart-filled.png')%>
           data-like-imageu-value=<%=asset_path('heart.png')%>
+          data-like-count-value=<%= post.likes.count%>
         >
           <div class="like-image" data-action="click->like#toggle">
             <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
@@ -38,7 +39,10 @@
               <% end %>
             <% end %>
           </div>
-          <div class="likes-count"><%= post.likes.count %> like <br></div>
+          <div>
+            <span class="likes-count" data-like-target="counter" ><%= post.likes.count %></span> 
+            like
+          </div>
         </div>
         <%= link_to post_path(post) do %>
           <div class="comment-buttons">
