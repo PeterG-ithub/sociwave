@@ -31,13 +31,16 @@
           data-like-count-value=<%= post.likes.count%>
         >
           <div class="like-image" data-action="click->like#toggle">
-            <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
               <% if current_user.likes.map(&:likable_id).include?(post.id) %>
-                <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'liked', 'data-like-target': :like %>
+                <% like = post.likes.where(user_id: current_user.id)%>
+                <%= form_with url: post_like_path(post.id, id: like.first.id ), method: :delete do |form| %>
+                  <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'liked', 'data-like-target': :like %>
+                <% end %>
               <% else %>
-                <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'unliked', 'data-like-target': :like%>
+                <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
+                  <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'unliked', 'data-like-target': :like%>
+                <% end %>
               <% end %>
-            <% end %>
           </div>
           <div>
             <span class="likes-count" data-like-target="counter" ><%= post.likes.count %></span> 
