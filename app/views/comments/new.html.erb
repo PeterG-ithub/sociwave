@@ -1,2 +1,4 @@
-<h1>New Comment</h1>
-<%= render "form", post: @post, comment: @comment%>
+<%= turbo_frame_tag "new_comment" do %>
+  <p>Comment as: <%= current_user.username %></p>
+  <%= render "form", post: @post, comment: @comment%>
+<% end %>

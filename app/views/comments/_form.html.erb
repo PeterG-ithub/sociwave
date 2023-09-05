@@ -1,14 +1,16 @@
-<%= turbo_frame_tag "new_comment" do %>
-  <% if comment.errors.any? %>
-  <ul>
-    <% comment.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-  <% end %>
-
-  <%= form_with model: [post, comment] do |form| %>
-    <%= form.text_field :body, placeholder: 'Comments' %>
-    <%= form.submit %>
+<% if comment.errors.any? %>
+  <% comment.errors.full_messages.each do |msg| %>
+    <div class="error-message">
+      <%= msg %>
+    </div>
   <% end %>
 <% end %>
+
+
+<%= form_with model: [post, comment] do |form| %>
+<div class="comment-form">
+  <%= form.text_area :body, placeholder: 'What do you think of this?', size: "70x5", class: "comment-input" %>
+  <%= form.submit class: "comment-submit-button" %>
+</div>
+<% end %>
+

@@ -12,3 +12,26 @@
 .comment-body {
   padding-top: .3rem;
 }
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: .5rem;
+}
+
+.comment-input,
+.comment-submit-button {
+  border: none;
+  border-radius: .5rem;
+  padding: .7rem;
+  resize: none;
+}
+
+.field_with_errors {
+  display: flex;
+}
+
+.error-message {
+  color: red;
+}

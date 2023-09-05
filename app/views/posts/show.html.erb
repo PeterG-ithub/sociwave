@@ -27,12 +27,15 @@
     <div class="item-buttons">
       <%= render partial: 'like', locals: {post: @post}%>
       <div class="comment-buttons">
-          <%= image_tag('comment.png') %> <br>
-          Comment
-        </div>
+        <%= image_tag('comment.png') %> <br>
+        Comment
+      </div>
     </div>
 
     <div class="comments-container">
+      <div class="comment-item">
+        <%= turbo_frame_tag "new_comment", src: new_comment_path(post_id: @post.id), target: "_top"%>
+      </div>
       <% @post.comments.each do |comment| %>
         <div class="comment-item">
           <div class="comment-head">          
