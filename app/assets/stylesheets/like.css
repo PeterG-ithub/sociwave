@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
-.like-image,
+.like-button-image,
 .liked,
 .unliked {
   width: 1.5rem;
