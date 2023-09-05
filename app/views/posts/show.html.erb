@@ -25,21 +25,39 @@
     </div>
   
     <div class="item-buttons">
-      <div class="like-button">
-        <%= form_with url: post_likes_path(@post.id), method: :post do |form| %>
-          <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'like-button-image' %>
-        <% end %>
-        <%= @post.likes.count %> like <br>
-      </div>
+      <%= render partial: 'like', locals: {post: @post}%>
       <div class="comment-buttons">
           <%= image_tag('comment.png') %> <br>
           Comment
         </div>
     </div>
 
-    <div class="comments">
+    <div class="comments-container">
       <% @post.comments.each do |comment| %>
-        <%= comment.body%> br
+        <div class="comment-item">
+          <div class="comment-head">          
+            <span class="user-image">
+            <%= image_tag('user.png')%>
+            </span>
+            <span class="username">
+              <%= comment.user.username %>
+            </span>
+            <% time = Time.at(Time.now - comment.created_at) %>
+            <% days = time.utc.strftime("%e") %>
+            <% hours = time.hour %>
+            <% mins = time.min %>
+            <% if (hours - 1) <= 0 && (days.to_i - 1) <= 0 %>
+              <%= mins %> minutes ago
+            <% elsif (days.to_i - 1) == 0 %>
+              <%= hours %> hours ago
+            <% else %>
+              <%= (days.to_i - 1)%> days ago
+            <% end %>
+          </div>
+          <div class="comment-body">
+            <%= comment.body%> <br>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

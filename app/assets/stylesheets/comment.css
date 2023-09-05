@@ -1,0 +1,14 @@
+.comment-item {
+  border-top: 1px solid;
+  padding: 1rem;
+}
+
+.comment-head {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.comment-body {
+  padding-top: .3rem;
+}
