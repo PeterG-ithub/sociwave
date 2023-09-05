@@ -25,13 +25,16 @@
         </div>
       <% end %>
       <div class="item-buttons">
-        <div class="like-button" data-controller="like">
-          <div class="like-image" data-action="click->like#add">
+        <div class="like-button" data-controller="like"
+          data-like-imagel-value=<%=asset_path('heart-filled.png')%>
+          data-like-imageu-value=<%=asset_path('heart.png')%>
+        >
+          <div class="like-image" data-action="click->like#toggle">
             <%= form_with url: post_likes_path(post.id), method: :post do |form| %>
               <% if current_user.likes.map(&:likable_id).include?(post.id) %>
-                <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'liked' %>
+                <%= form.submit "", :type => :image, :src => asset_path('heart-filled.png'), class: 'liked', 'data-like-target': :like %>
               <% else %>
-                <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'unliked' %>
+                <%= form.submit "", :type => :image, :src => asset_path('heart.png'), class: 'unliked', 'data-like-target': :like%>
               <% end %>
             <% end %>
           </div>
