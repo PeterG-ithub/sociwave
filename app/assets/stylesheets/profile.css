@@ -1,0 +1,17 @@
+.profile-container {
+  background-color: #e2dfda;
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-section {
+  background-color: #f9f6f5;
+  width: 75ch;
+  padding: .7rem 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin: .3rem 0rem;
+}

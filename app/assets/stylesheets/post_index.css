@@ -57,6 +57,11 @@ body {
 
 .user-dropdown>*:hover {
   background-color: rgba(180, 180, 180, 0.541);
+  cursor: pointer;
+}
+
+.user:hover {
+  cursor: pointer;
 }
 .user-dropdown > * img {
   width: 20px;

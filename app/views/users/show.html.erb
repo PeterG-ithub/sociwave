@@ -1,0 +1,18 @@
+<%= render 'posts/nav'%>
+<div class="profile-container">
+  <div class="profile-section">
+    <div>Profile</div>
+  </div>
+  <div class="profile-section">
+    <div>Post</div>
+    <% current_user.posts.each do |post| %>
+      <%=post.body%>
+    <% end %>
+  </div>
+  <div class="profile-section">
+    <div>Friends</div>
+    <% current_user.friends.each do |friend| %>
+      <%=friend.username%>
+    <% end %>
+  </div>
+</div>

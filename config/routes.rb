@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/index'
+  get 'profile', action: :show, controller: 'users'
   resources :users, only: [:index]
   resources :friend_requests, :friends,  only: [:index, :create, :destroy]
   resources :posts do
