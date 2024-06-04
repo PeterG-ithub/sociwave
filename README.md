@@ -70,4 +70,4 @@ This Ruby Project is part of the curriculum provided by The Odin Project, an ope
 
 ## Screenshot Demo
 ![Demo1](images/demo1.png)
-![Demo2](images/demo2.png)
+![Demo2](images/demo.png)
